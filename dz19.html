@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DZ19</title>
+</head>
+<body>
+<script>
+    /*задание1*/
+    function getFactorial (num1) {
+        return num1 ? num1 * getFactorial(num1 - 1) : 1;
+    }
+    let number1 = +prompt('Введите число:');
+    getFactorial(number1);
+    let result = getFactorial(number1);
+    alert(`${result}`);
+    /*задание2*/
+    function getDirectOrder (num1, num2) {
+        if(num1 !== num2) {
+            let numbers = getDirectOrder(num1 +1, num2);
+            numbers.unshift(num1);
+            return numbers;
+        }else return [num1];
+    }
+    let number2 = +prompt('Введите начало диапазона:');
+    let number3 = +prompt('Введите конец диапазона:');
+    let result1 = getDirectOrder(number2, number3);
+    alert(`${result1}`);
+    function getReversOrder (num1, num2) {
+        if (num1 !== num2) {
+            let numbers = getReversOrder(num1, num2 -1);
+            numbers.unshift(num2);
+            return numbers;
+        }else {
+        return [num2];
+        }
+    }
+    let result2 = getReversOrder(number2, number3);
+    alert(`${result2}`);
+    /*задание3*/
+    function getReversNumber(num1) {
+        return (num1 === '') ? '' : num1.slice(-1) + getReversNumber(num1.slice(0, -1));
+    }
+    let number4 = prompt('Введите число:');
+    getReversNumber(number4);
+    let result3 = getReversNumber(number4);
+    alert(`${result3}`);
+    /*задание4*/
+    function getSumOfNumbers(num1) {
+        return (num1 === '') ? 0 : +(num1.slice(-1)) + getSumOfNumbers(num1.slice(0, -1));
+    }
+    let number5 = prompt('Введите число:');
+    getSumOfNumbers(number5);
+    let result4 = getSumOfNumbers(number5);
+    alert(`${result4}`);
+    /*задание5*/
+    function getBrackets (num1) {
+        return num1 ? '(' + getBrackets(num1 - 1) + ')' : '';
+    }
+    let number6 = +prompt('Введите число:');
+    getBrackets(number6);
+    let result5 = getBrackets(number6);
+    alert(`${result5}`);
+</script>
+</body>
+</html>
